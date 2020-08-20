@@ -1,0 +1,79 @@
+img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]{ display: none;
+}
+.angle.bottom haze{ width: 100vw;
+}
+.nav-bar.w-nav{ bacground-color: red !important;
+}
+.nav-link .w-nav-link{ color: #212c42;
+}
+.nav-bar-dark{ background: #8089de;
+}
+.section.grade-bg-1{ background: #8089de;
+}
+.nav-menu{ margin-right: 110px;
+}
+.hero-intro{ margin-top: 25px;
+}
+.nav-menu-wrapper{ margin-right: 0px;
+}
+.section.grade-bg-1{ color: #212c42;
+}
+.nav-menu { margin-right: 0px;
+}
+.section.grade-bg-1 { background-image: linear-gradient(225deg,#3d90e2,#1818e2);
+}
+.w-nav-button{ font-size: 30px;
+}
+.angle.bottom.haze{ display: none !important;
+}
+.container-3{ /* background-color: coral; */ display: flex;
+}
+.container-3 .left{ flex: 1;
+}
+.container-3 .right{ flex: 1;
+}
+.posts.w-dyn-items img{ height: 170px;
+}
+.footer-column { padding-left: 170px;
+}
+.fairy{ width: 450px;
+}
+.erza{ width: 120px; height: 40px; border-radius: 12px; background: #8089de; color: white;
+}
+@media screen and (max-width: 479px){ .fairy{ left: 30px;
+}
+}
+@media screen and (max-width: 767px){ .fairy{ left: 70px;
+	}
+}
+@media screen and (max-width: 767px){ .mockup-wrapper.white-mockup.hero-phone { position: absolute; left: 40%; top: 100px; text-align: left;
+}
+.right{text-align:center;}
+.nav-menu-wrapper { padding-right: 60px;
+}
+.nav-bar { height: 64px; background-color: rgb(33,44,66);
+}
+.button.nav-bar-button{ display: none;
+}
+.footer-column{ width: 0%;
+}
+.footer-column { padding-left: 110px;
+}
+@media screen and (max-width: 991px){ .nav-menu-wrapper { padding-right: 80px;
+}
+.menu-button{ margin-right: -60px;
+}
+@media screen and (max-width: 479px){ .hero-image{ left: -30%;
+}
+.left{
+	
+}
+}
+@media screen and (max-width: 479px){ .nav-bar { height: 64px; background-color: rgb(33,44,66);
+}
+}
+@media (min-width: 320px) and (max-width: 480px) {.left{margin-left:-20px;} .mockup-wrapper.white-mockup.hero-phone { left: 45%;}
+.right{text-align:center;}
+.footer-column{margin-left:-50px;} 
+
+}

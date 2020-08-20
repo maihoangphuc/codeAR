@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Image Tracking </title>
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>  
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.1/dist/aframe-extras.min.js" ></script> 
+    <script src="gesture-detector.js"></script>
+    <script src="gesture-handler.js"></script>
+    <style>           
+     .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+      .arjs-loader div {  
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+    }
+</style>
+</head>
+<body>
+    <div class="arjs-loader">
+        <div>Loading, please wait...</div>
+    </div>
+
+    <a-scene vr-mode-ui="enabled: false;"
+       gesture-detector
+       renderer="logarithmicDepthBuffer: true;"
+       embedded
+       arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+    <!-- /////////////////////////////////////////////////////////// Robot&TTNT ////////////////////////////////////////////////////////// -->
+    <a-nft
+      type="nft"
+      url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/maihoangphuc/webar/master/aframe/examples/image-tracking/nft/marker/robot&ttnt/robot&ttnt"
+      smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5"
+      raycaster="objects: .clickable"
+    >                                                  
+    <a-entity
+      gltf-model="https://cdn.glitch.com/7bd17b3b-6471-4fc5-badc-9f8bd3211933%2Frb_walk.glb?v=1596352833284"
+      scale="70 70 70" position="290 100 -290" rotation="-30 0 0" z-index="100"
+      animation-mixer                                                                                                                                                 
+      class="clickable" 
+      gesture-handler
+      link = "on: click; href: https://aframe-aincraft.glitch.me"
+    >      
+ </a-entity> 
+ <a-text
+      scale="140 140 140" position="290 0 -90" rotation="-100 0 0" z-index="100"
+      align="center"
+      color="yellow"
+      class="clickable"
+      gesture-handler
+      value="Robotics and Artificial Intelligence"></a-text>
+    </a-nft>
+    <a-entity camera></a-entity>
+   </a-scene>
+ </body>
+</html>
+      

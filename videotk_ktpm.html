@@ -1,0 +1,119 @@
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<script>
+    window.onload = function() {
+        AFRAME.registerComponent('videohandler', {
+            init: function () {
+                var marker = this.el;
+
+                this.vid = document.querySelector("#mivideo");
+
+                marker.addEventListener('markerFound', function () {
+                    this.vid.play();
+                }.bind(this));
+
+                marker.addEventListener('markerLost', function() {
+                        this.vid.pause();
+                        this.vid.currentTime = 0;
+                }.bind(this));
+            }
+        });
+    };
+</script>
+
+<style>
+    .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .arjs-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+    }
+    .button{
+      background-color:black;
+      border:none; 
+      color:white;                                                                                                                                                                                                       padding:7px;
+      text-align:center;
+      text-decoration:none;
+      display:inline-block;
+      font-size:12px;
+      cursor:pointer;
+      border-radius:12px;
+      border: 2px solid rgba(9, 148, 28, 0.541);
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+</style>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <div style='position: fixed; top: 10px; left: 10px; width:100%; text-align: center; z-index:1;'>
+     <button class="button" id="btn1">Play Sound</button>
+     <button class="button" id="btn2">Stop Sound</button>
+     <button class="button" id="btn3">Stop Video</button>
+     <button class="button" id="btn4">Play Video</button>
+    </div>
+    <div class="arjs-loader">
+        <div>Loading, please wait...</div>
+    </div>
+     <a-scene
+        vr-mode-ui="enabled: false;"
+        renderer='antialias: true; alpha: true; precision: mediump;'
+        embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+
+        <a-assets>
+            <video src="https://cdn.glitch.com/7bd17b3b-6471-4fc5-badc-9f8bd3211933%2Fkythuatphanmem.mp4?v=1596113274287"
+                preload="auto" id="mivideo" response-type="arraybuffer"
+                crossorigin webkit-playsinline playsinline>
+            </video>
+        </a-assets>
+
+        <a-nft
+            videohandler
+            type='nft' url='https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/maihoangphuc/webar/master/aframe/examples/image-tracking/nft/marker/kythuatphanmem/kythuatphanmem'
+            smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
+        >
+            <a-video
+                src="#mivideo"
+                position="80 0 -110"
+                rotation="-100 0 0"
+                width="150"
+                height="110"
+            >
+            </a-video>
+    <script>
+       var m = document.querySelector("a-nft")
+       m.addEventListener("markerFound", (e)=>{
+       console.log("found")
+       var v= document.querySelector('#mivideo').play();
+      })
+       m.addEventListener("markerLost", (e)=>{
+       console.log("lost")
+       var v= document.querySelector('#mivideo').pause();
+      })
+       document.getElementById("btn1").addEventListener("click", (e)=>{
+       var v = document.querySelector('#mivideo').muted=false;
+      })
+       document.getElementById("btn2").addEventListener("click", (e)=>{
+       var v = document.querySelector('#mivideo').muted=true;
+      })
+       document.getElementById("btn3").addEventListener("click", (e)=>{
+       var v = document.querySelector('#mivideo').pause();
+      })
+       document.getElementById("btn4").addEventListener("click", (e)=>{
+       var v = document.querySelector('#mivideo').play();
+      })
+     </script>                                                                                                                                                                                                          </a-nft>
+   <a-entity camera></a-entity>
+ </a-scene>
+</body>
+
